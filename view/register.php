@@ -1,4 +1,4 @@
-<?php include __DIR__.'/header.php'; ?>
+<?php include __DIR__.'/templates/header.php'; ?>
 <div id="content">
     <form action="." method="post" >
         <fieldset>
@@ -14,4 +14,4 @@
         </fieldset>
     </form>
 </div>
-<?php include __DIR__.'/footer.php'; ?>
+<?php include __DIR__.'/templates/footer.php'; ?>

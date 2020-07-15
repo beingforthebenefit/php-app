@@ -1,4 +1,4 @@
-<?php include __DIR__.'/header.php'; ?>
+<?php include __DIR__.'/templates/header.php'; ?>
 <div id="content">
     <h2>Success</h2>
     <p>The following registration information has been successfully
@@ -11,4 +11,4 @@
         <li>ZIP Code: <?= htmlspecialchars($zipcode); ?></li>
     </ul>
 </div>
-<?php include __DIR__.'/footer.php'; ?>
+<?php include __DIR__.'/templates/footer.php'; ?>
