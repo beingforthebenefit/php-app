@@ -2,16 +2,21 @@
 namespace Model;
 
 class Validate {
+
+    // fields :: \Model\Fields
     private $fields;
 
+    // new \Model\Validate
     public function __construct() {
         $this->fields = new Fields();
     }
 
+    // getFields :: void -> \Model\Fields
     public function getFields() {
         return $this->fields;
     }
 
+    // text :: (string, string, bool?, int?, int?) -> void
     // Validate a generic text field
     public function text($name, $value,
             $required = true, $min = 1, $max = 255) {
@@ -37,6 +42,7 @@ class Validate {
         }
     }
 
+    // pattern :: (string{4}, bool?) -> null|void
     // Validate a field with a generic pattern
     public function pattern($name, $value, $pattern, $message,
             $required = true) {
@@ -61,12 +67,15 @@ class Validate {
         }
     }
 
+    // phone :: (string, string, bool?) -> null|void
     public function phone($name, $value, $required = false) {
         $field = $this->fields->getField($name);
 
         // Call the text method and exit if it yields an error
         $this->text($name, $value, $required);
-        if ($field->hasError()) { return; }
+        if ($field->hasError()) {
+            return;
+        }
 
         // Call the pattern method to validate a phone number
         $pattern = '/^\d{3}-\d{3}-\d{4}$/';
@@ -74,12 +83,15 @@ class Validate {
         $this->pattern($name, $value, $pattern, $message, $required);
     }
     
+    // zipcode :: (string, string, bool) -> null|void
     public function zipcode($name, $value, $required = true) {
         $field = $this->fields->getField($name);
 
         // Call the text method and exit if it yields an error
         $this->text($name, $value, $required);
-        if ($field->hasError()) { return; }
+        if ($field->hasError()) {
+            return;
+        }
 
         // Call the pattern method to validate a phone number
         $pattern = '/^\d{5}$/';
@@ -87,6 +99,7 @@ class Validate {
         $this->pattern($name, $value, $pattern, $message, $required);
     }
 
+    // email :: (string, string, bool?) -> null|void
     public function email($name, $value, $required = true) {
         $field = $this->fields->getField($name);
 
@@ -98,7 +111,9 @@ class Validate {
 
         // Call the text method and exit if it yields an error
         $this->text($name, $value, $required);
-        if ($field->hasError()) { return; }
+        if ($field->hasError()) {
+            return;
+        }
 
         // Split email address on @ sign and check parts
         $parts = explode('@', $value);
@@ -140,7 +155,9 @@ class Validate {
         // Call the pattern method and exit if it yields an error
         $this->pattern($name, $local, $localPattern,
                 'Invalid username part.');
-        if ($field->hasError()) { return; }
+        if ($field->hasError()) {
+            return;
+        }
 
         // Patterns for domain part
         $hostname = '([[:alnum:]]([-[:alnum:]]{0,62}[[:alnum:]])?)';
