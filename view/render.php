@@ -1,4 +1,5 @@
 <?php
+namespace View;
 
 class Render {
 	public static function template($include) {

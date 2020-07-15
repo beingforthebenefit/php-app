@@ -4,11 +4,11 @@
     <p>The following registration information has been successfully
        submitted.</p>
     <ul>
-        <li>Username: <?php echo htmlspecialchars($username); ?></li>
-        <li>Password: <?php echo htmlspecialchars($password); ?></li>
-        <li>Phone: <?php echo htmlspecialchars($phone); ?></li>
-        <li>Email: <?php echo htmlspecialchars($email); ?></li>
-        <li>ZIP Code: <?php echo htmlspecialchars($zipcode); ?></li>
+        <li>Username: <?= htmlspecialchars($username); ?></li>
+        <li>Password: <?= htmlspecialchars($password); ?></li>
+        <li>Phone: <?= htmlspecialchars($phone); ?></li>
+        <li>Email: <?= htmlspecialchars($email); ?></li>
+        <li>ZIP Code: <?= htmlspecialchars($zipcode); ?></li>
     </ul>
 </div>
 <?php include __DIR__.'/footer.php'; ?>

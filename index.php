@@ -4,7 +4,7 @@ require_once(__DIR__.'/model/fields.php');
 require_once(__DIR__.'/model/validate.php');
 
 // Add fields with optional initial message
-$validate = new Validate();
+$validate = new \Model\Validate();
 $fields = $validate->getFields();
 $fields->addField('username', 'Must be between 6 and 10 characters');
 $fields->addField('password');
