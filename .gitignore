@@ -1,1 +1,7 @@
+
+# Ignore automated deploy bash script
 deploy.sh
+
+# Ignore sublime-text project files
+*.sublime-project
+*.sublime-workspace
